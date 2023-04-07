@@ -17,6 +17,22 @@ security:
             lazy: true
             provider: app_user_provider
 
+            form_login:
+                # contrôleur permettant d'afficher le formulaire
+                # login est le nom (arbitraire) de la route 
+                login_path: login
+                # contrôleur de traitement du formulaire de connexion
+                # on remarque que la route est identique.
+                check_path: login
+                # redirection par défaut après la réussite de la connexion
+                default_target_path: home
+                enable_csrf: true
+
+            logout:
+                path: logout
+                # Route de redirection après la déconnexion
+                target: home
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -26,8 +42,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }
 
 when@test:
     security:

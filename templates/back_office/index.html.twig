@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackOfficeController!
+{% endblock %}
+
+{% block body %}
+	<div class="dashboard">
+		<h1>Dashboard</h1>
+		<ul>
+			<li>
+				<a href="{{ path('back_office_address_add') }}">Ajouter une adresse</a>
+			</li>
+			{# twig de M #}
+			<li>
+				<a href="{{ path('back_office_address_edit', {'id': 1}) }}">Modifier une adresse</a>
+			</li>
+			<li>
+				<a href="{{ path('back_office_address_delete', {'id': 1}) }}">Supprimer une adresse</a>
+			</li>
+			<li>
+				<a href="{{ path('back_office_bank_add') }}">Ajouter un montant à la banque</a>
+			</li>
+			<li>
+				<a href="{{ path('back_office_annonce_add') }}">Ajouter une annonce</a>
+			</li>
+		</ul>
+	</div>
+{% endblock %}
